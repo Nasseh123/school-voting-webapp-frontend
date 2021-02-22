@@ -1,3 +1,6 @@
+import { NewCandidateComponent } from './components/admin/actions/new-candidate/new-candidate.component';
+import { NewPositionComponent } from './components/admin/actions/new-position/new-position.component';
+import { NewUserComponent } from './components/admin/actions/new-user/new-user.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +13,25 @@ const routes: Routes = [
   
   {path:'login',component:AuthenticationComponent},
 
-  {path:'admin',component:AdminComponent}
+  {
+    path:'admin',
+    component:AdminComponent, 
+    children:[
+      {
+        path:'new-user',
+        component:NewUserComponent,
+      },
+      {
+        path:'new-position',
+        component:NewPositionComponent,
+      },
+      {
+        path:'new-candidate',
+        component:NewCandidateComponent,
+      },
+  ],
+  
+}
 ];
 
 @NgModule({

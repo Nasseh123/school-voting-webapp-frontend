@@ -14,5 +14,9 @@ export class LoginService {
   login(data){
     return this.http.post(`${this.baseURl}api/auth/signin`, data)
   }
+  // signup()
+  createUser(data){
+    return this.http.post(`${this.baseURl}api/auth/signup`,data)
+  }
 
 }

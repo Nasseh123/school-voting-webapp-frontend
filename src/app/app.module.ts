@@ -11,21 +11,35 @@ import {HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component'
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { NewUserComponent } from './components/admin/actions/new-user/new-user.component';
+import { NewPositionComponent } from './components/admin/actions/new-position/new-position.component';
+import { NewCandidateComponent } from './components/admin/actions/new-candidate/new-candidate.component'
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     AdminComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewUserComponent,
+    NewPositionComponent,
+    NewCandidateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

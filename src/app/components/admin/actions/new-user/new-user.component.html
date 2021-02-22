@@ -1,0 +1,49 @@
+<div class="wrapper">
+    <form class="form-signin" #f="ngForm"  (ngSubmit)="f.form.valid  && createUser(f.value)" >       
+      <h2 class="form-signin-heading">New User</h2>
+      
+      <input type="email"  #email="ngModel" [(ngModel)]="newUser.email" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"  name="email" class="form-control" placeholder="email..." required email autofocus="" />
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">email is required</div>
+        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+    </div>
+
+      <input type="text"  #username="ngModel" [(ngModel)]="newUser.username"  [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"   name="username" class="form-control"  placeholder="username" required/>      
+      <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+        <div *ngIf="username.errors.required">Username is required</div>
+      </div>
+
+      <input type="password"  #password="ngModel" [(ngModel)]="newUser.password"  [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"name="password" class="form-control"  placeholder="Password" required minlength="4"/>   
+      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">Password must be at least 4 characters</div>
+      </div>
+      
+      <input type="password"  #confirmpassword="ngModel" [(ngModel)]="newUser.confirmpassword"  
+      [ngClass]="{ 'is-invalid': f.submitted && confirmpassword.invalid }"  name="confirmpassword" class="form-control" placeholder="confirmpassword..." required>  
+      <div *ngIf="f.submitted && confirmpassword.invalid" class="invalid-feedback">
+        <div *ngIf="confirmpassword.errors.required">Confirm Password is required</div>
+        <div *ngIf="confpass">Passwords dont match</div>
+      </div>
+
+      <ng-multiselect-dropdown
+                                #roles
+                                name="roles"
+                                [(ngModel)]="newUser.roles" 
+                                [ngClass]="{ 'is-invalid': f.submitted && roles.invalid }"
+
+                                [placeholder]="'Select a role...'" 
+                                [settings]="dropdownSettings"
+                                [data]="dropdownList"
+                                (onSelect)="onItemSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                    
+                              >
+    </ng-multiselect-dropdown>
+    <!-- <div *ngIf="f.submitted && roles.invalid" class="invalid-feedback">
+        <div *ngIf="roles.errors.required">Role is required</div>
+      </div> -->
+    <br> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit" >Create User</button>   
+    </form>
+  </div>
