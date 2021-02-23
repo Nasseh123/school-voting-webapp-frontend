@@ -1,1 +1,35 @@
-<p>new-candidate works!</p>
+
+        <div class="wrapper">
+            <form class="form-signin" #f="ngForm"  (ngSubmit)="createCandidate(f.value)" >              
+              <h2 class="form-signin-heading">New Candidate</h2>
+              
+           
+              <ng-multiselect-dropdown
+                                        #user
+                                        name="user"
+                                        (ngModel)="user"
+                                        [placeholder]="'Select a user...'" 
+                                        [settings]="usersSetting"
+                                        [data]="userList"
+                                        (onSelect)="onItemSelect($event)"
+                                        (onSelectAll)="onSelectAll($event)"
+                                            
+                                      >
+            </ng-multiselect-dropdown>
+           
+            <br> 
+            <ng-multiselect-dropdown
+                                        #position
+                                        name="position"
+                                        (ngModel)="position"
+                                        [placeholder]="'Select a position...'" 
+                                        [settings]="positionSettings"
+                                        [data]="positionsList"
+                                        (onSelect)="onItemSelect($event)"
+                                        (onSelectAll)="onSelectAll($event)"
+                                            
+                                      >
+            </ng-multiselect-dropdown>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" >Create Candidate</button>   
+            </form>
+          </div>

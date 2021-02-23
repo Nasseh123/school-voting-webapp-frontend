@@ -1,1 +1,14 @@
-<p>new-position works!</p>
+<div class="wrapper">
+    <form class="form-signin" #f="ngForm"  (ngSubmit)="f.form.valid  && createPosition(f.value)" >       
+      <h2 class="form-signin-heading">New Position</h2>
+      
+      <input type="text"  #name="ngModel" [(ngModel)]="newPosition.name" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"  
+      name="name" class="form-control" placeholder="position name..." required  />
+      <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+        <div *ngIf="name.errors.required">Position naame is required</div>
+     
+    </div>
+    <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" >Create Position</button>   
+    </form>
+</div>

@@ -62,10 +62,18 @@ export class NewUserComponent implements OnInit {
     let cc = value.roles.map(({ item_text }) => item_text);
     console.log(cc)
     value.roles=cc
+    
+    value.roles.push('user')
+    console.log(value.roles);
     if (valid){
 
       this.auth.createUser(value).subscribe((x:any)=>{
         this.toastr.success(x)
+      },(error) =>{
+        console.log('errro');
+        console.log(error);
+        
+        this.toastr.error(error.error.message)
       })
     }
   }
