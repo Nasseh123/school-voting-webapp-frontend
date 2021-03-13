@@ -1,3 +1,5 @@
+import { VoteSuccessComponent } from './components/vote/vote-success/vote-success.component';
+import { VoteComponent } from './components/vote/vote.component';
 import { NewCandidateComponent } from './components/admin/actions/new-candidate/new-candidate.component';
 import { NewPositionComponent } from './components/admin/actions/new-position/new-position.component';
 import { NewUserComponent } from './components/admin/actions/new-user/new-user.component';
@@ -29,9 +31,11 @@ const routes: Routes = [
         path:'new-candidate',
         component:NewCandidateComponent,
       },
-  ],
+    ],
+  },
+  {path:'vote',component:VoteComponent},
+  {path:'vote-success',component:VoteSuccessComponent}
   
-}
 ];
 
 @NgModule({

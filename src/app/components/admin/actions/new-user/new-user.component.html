@@ -12,6 +12,11 @@
       <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
         <div *ngIf="username.errors.required">Username is required</div>
       </div>
+      
+      <input type="text"  #imageUrl="ngModel" [(ngModel)]="newUser.imageUrl"  [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }"   name="imageUrl" class="form-control"  placeholder="user profile imageUrl" required/>      
+      <div *ngIf="f.submitted && imageUrl.invalid" class="invalid-feedback">
+        <div *ngIf="imageUrl.errors.required">imageUrl is required</div>
+      </div>
 
       <input type="password"  #password="ngModel" [(ngModel)]="newUser.password"  [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"name="password" class="form-control"  placeholder="Password" required minlength="4"/>   
       <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">

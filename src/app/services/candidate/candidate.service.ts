@@ -12,4 +12,7 @@ export class CandidateService {
   createCandidate(data){
     return this.http.post(`${this.baseUrl}api/new/candidate`,data)
   }
+  allcandidates(){
+    return this.http.get(`${this.baseUrl}api/candidates`)
+  }
 }

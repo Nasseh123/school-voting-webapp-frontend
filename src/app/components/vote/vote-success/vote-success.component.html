@@ -1,0 +1,13 @@
+
+<app-navbar></app-navbar>
+<div class="container align-content-center">
+    <h3 class="align-items-center">
+        Succesful
+    </h3>
+    <h5>You voted for</h5>
+<ul>
+    <li *ngFor="let chos of votechosen">
+        <span>{{chos['position']}} -- {{chos['candidate']['username']}}</span>
+    </li>
+</ul>
+</div>

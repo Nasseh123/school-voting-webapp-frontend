@@ -19,6 +19,9 @@ import { NewCandidateComponent } from './components/admin/actions/new-candidate/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ToastrModule } from 'ngx-toastr';
+import { VoteComponent } from './components/vote/vote.component';
+import { VoteChildComponent } from './components/vote/vote-child/vote-child.component';
+import { VoteSuccessComponent } from './components/vote/vote-success/vote-success.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     NewUserComponent,
     NewPositionComponent,
-    NewCandidateComponent
+    NewCandidateComponent,
+    VoteComponent,
+    VoteChildComponent,
+    VoteSuccessComponent
   ],
   imports: [
     BrowserModule,

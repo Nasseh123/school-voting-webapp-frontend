@@ -1,0 +1,36 @@
+.title_box {
+    border: #3c5a86 1px dotted;
+    
+  }
+  
+  .title_box #title {
+    position: relative;
+    top: -0.5em;
+    margin-left: 1em;
+    display: inline;
+    background-color: white;
+    font-size: 20px;
+
+  }
+  
+  .title_box #content {
+      flex-wrap: wrap;
+  }
+
+.card{
+    margin: 5px;
+}
+.card img{
+    content: '1';
+    border-radius: 50%;
+    height: 18rem
+}
+p{
+font-size:initial rem;
+}
+.alldivs{
+  display: none;
+}
+#bill_to{
+  margin-top: 10px;
+}

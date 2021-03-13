@@ -1,0 +1,21 @@
+td img{
+
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+}
+.imgggg{
+    padding: 0;
+    margin: 0;
+    width:30rem
+}
+.votsss{
+    /* padding: 0; */
+    /* margin: 0; */
+    width:10rem
+}
+table{
+    /* width: auto; */
+    padding: 0;
+    margin: 0
+}
