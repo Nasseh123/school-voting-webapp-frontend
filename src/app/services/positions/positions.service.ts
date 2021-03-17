@@ -15,4 +15,7 @@ export class PositionsService {
   getAllPositions(){
     return this.http.get(`${this.baseUrl}api/positions`)
   }
+  changePositionsStatus(pos){
+    return this.http.post(`${this.baseUrl}api/update-status/positions`,pos)
+  }
 }

@@ -14,10 +14,10 @@
             <a class="nav-link" routerLink="/admin">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn-danger btn " routerLink="/vote">VOTE</a>
+            <a class="nav-link btn-danger btn " routerLink="/vote" *ngIf="!status">VOTE</a>
           </li>
           <li class="nav-item " style="justify-content: center;">
-            <a class="nav-link btn-success btn " routerLink="/vote">You have voted</a>
+            <a class="nav-link btn-success btn " *ngIf="status">You have voted </a>
           </li>
          
         </ul>

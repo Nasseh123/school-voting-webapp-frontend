@@ -1,0 +1,25 @@
+ <div class="content">
+<table class="table table-striped table-hover wrapper">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Position Name</th>
+        <th scope="col">No of Voters</th>
+        <th scope="col">No of Votes</th>
+        <th scope="col">Status</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pos of allPositions">
+        <th scope="row">1</th>
+        <td>{{pos.name}}</td>
+        <td>{{pos.noOfUsers}}</td>
+        <td>{{pos.noUsersVoted}}</td>
+        <th *ngIf="pos.status" (click)="changeStatus(pos)"> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
+        <th *ngIf="!pos.status" (click)="changeStatus(pos)"> <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>Deactive</button></th>
+        <th ><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+      </tr>
+      
+    </tbody>
+  </table>

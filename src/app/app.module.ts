@@ -22,6 +22,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { VoteComponent } from './components/vote/vote.component';
 import { VoteChildComponent } from './components/vote/vote-child/vote-child.component';
 import { VoteSuccessComponent } from './components/vote/vote-success/vote-success.component';
+import { PositionComponent } from './components/admin/update/position/position.component';
+import { CandidateComponent } from './components/admin/update/candidate/candidate.component';
+import { UsersComponent } from './components/admin/update/users/users.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { VoteSuccessComponent } from './components/vote/vote-success/vote-succes
     NewCandidateComponent,
     VoteComponent,
     VoteChildComponent,
-    VoteSuccessComponent
+    VoteSuccessComponent,
+    PositionComponent,
+    CandidateComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
