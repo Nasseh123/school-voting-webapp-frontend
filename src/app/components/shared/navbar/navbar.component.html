@@ -11,13 +11,20 @@
             <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/admin">Admin</a>
+            <a class="nav-link" routerLink="/admin" *ngIf="adminRights">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn-danger btn " routerLink="/vote" *ngIf="!status">VOTE</a>
+            <a class="nav-link btn-danger btn " routerLink="/vote" *ngIf="!status && logged && !adminRights">VOTE</a>
           </li>
           <li class="nav-item " style="justify-content: center;">
-            <a class="nav-link btn-success btn " *ngIf="status">You have voted </a>
+            <a class="nav-link btn-success btn " *ngIf="status && logged">You have voted </a>
+          </li>
+          <li class="nav-item " style="justify-content: center;">
+            <a class="nav-link btn-success btn" routerLink="/login" *ngIf="!logged">Login to Vote </a>
+          </li>
+
+          <li class="nav-item " >
+            <a class="nav-link"routerLink="/login" (click)="logout()" *ngIf="logged">LOGOUT</a>
           </li>
          
         </ul>

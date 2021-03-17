@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class VoteComponent implements OnInit {
 
 
-  positions: any[] =
+  samplePositions: any[] =
     [
       {
         'position': ' SchoolPresident',
@@ -76,6 +76,8 @@ export class VoteComponent implements OnInit {
 
 
     ]
+  positions:any = []
+
   currentPos: any[] = []
   currentPosition = 0
   selectedArray = []
@@ -129,7 +131,7 @@ export class VoteComponent implements OnInit {
         console.log(this.positions.length);
         console.log(this.positions);
 
-        if (this.positions.length == 0) {
+        if (this.positions.length == 1 ) {
           this.lastItem = true
         }
       }

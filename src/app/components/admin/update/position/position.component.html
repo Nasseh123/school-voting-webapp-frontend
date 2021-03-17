@@ -11,14 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pos of allPositions">
-        <th scope="row">1</th>
+      <tr *ngFor="let pos of allPositions; index as i">
+        <th scope="row">{{i+1}}</th>
         <td>{{pos.name}}</td>
         <td>{{pos.noOfUsers}}</td>
         <td>{{pos.noUsersVoted}}</td>
         <th *ngIf="pos.status" (click)="changeStatus(pos)"> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
         <th *ngIf="!pos.status" (click)="changeStatus(pos)"> <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>Deactive</button></th>
-        <th ><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+        <th (click)="deletePos(pos)"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
       </tr>
       
     </tbody>

@@ -15,8 +15,9 @@ export class LoggedinService  implements CanActivate{
   public jwtHelper=new JwtHelperService;
 
   constructor(
-    private route:Router,
-    private toastrservice:ToastrService
+    
+    private toastrservice:ToastrService,
+    private route:Router
   ) { }
   canActivate() {
     this.token=JSON.parse(localStorage.getItem('token'))

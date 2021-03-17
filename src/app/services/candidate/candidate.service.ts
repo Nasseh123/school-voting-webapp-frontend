@@ -15,4 +15,8 @@ export class CandidateService {
   allcandidates(){
     return this.http.get(`${this.baseUrl}api/candidates`)
   }
+  deletecandidate(pos){
+    return this.http.post(`${this.baseUrl}api/delete/candidate`,pos)
+  }
+  
 }

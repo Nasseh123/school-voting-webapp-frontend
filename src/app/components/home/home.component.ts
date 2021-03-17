@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   positionsList=[];
+  percvot: any;
 
   constructor(
     private positionservice:PositionsService,
@@ -50,10 +51,12 @@ export class HomeComponent implements OnInit {
                   'points':this.totalPoints(this.positionsList[pos]['noUsersVoted'],candidate[i].points)
                 })
           }
+          this.percvot =this.totalPercVoted()
           
         }
       }
     })
+    
   }
   totalPoints(noUsersVoted,candidatespoints){
     if(noUsersVoted == 0 || candidatespoints == 0 ){
@@ -61,5 +64,10 @@ export class HomeComponent implements OnInit {
     }
     return (candidatespoints*100)/noUsersVoted
   }
-
+  totalPercVoted(){
+    let noOfUsers =this.positionsList[0].noOfUsers
+    let noUsersVoted = this.positionsList[0].noUsersVoted
+    
+    return (noUsersVoted*100)/noOfUsers
+  }
 }

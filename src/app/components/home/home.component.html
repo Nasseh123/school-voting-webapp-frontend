@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="container-fluid">
-     <span style="color: red;text-align: center;"> <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">RESULTS </span>90% <sup>Voted</sup></span> 
+     <span style="color: red;text-align: center;"> <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">RESULTS </span>{{percvot}}% <sup>Voted</sup></span> 
     <!-- <div class="row"> -->
      <div class="col-lg-6 col-sm-12" *ngFor="let pos of  positionsList">  
        <div class="title_box" id="bill_to" *ngIf="pos.candidates.length >0">

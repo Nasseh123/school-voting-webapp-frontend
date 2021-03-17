@@ -1,37 +1,27 @@
 <div class="content">
-    <table class="table table-striped table-hover wrapper">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Position Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table table-striped table-hover wrapper">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">User</th>
+          <th scope="col">Email</th>
+          <th scope="col">ROLE</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of allUsers; index as i">
+          <th scope="row">{{i + 1}}</th>
+          <td><img src="{{user.imageUrl}}" alt="" srcset="">{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td >
+            <span *ngFor="let x of user.roles">
+              <span *ngIf="x.name == 'student'">student</span>
+              <span *ngIf="x.name == 'admin'">Admin</span>
+            </span>
+          </td>
+          <th (click)="deletePos(candidate)"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+        </tr>
+        
+      </tbody>
+    </table>

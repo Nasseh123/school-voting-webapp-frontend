@@ -19,7 +19,7 @@ export class PositionComponent implements OnInit {
     
   }
   getAllPositions(){
-    this.positionservice.getAllPositions().subscribe((x:any) =>{
+    this.positionservice.getexplicitAllPositions().subscribe((x:any) =>{
       if (x){
         this.allPositions = x.positions;
         console.log(this.allPositions);
@@ -57,6 +57,17 @@ export class PositionComponent implements OnInit {
         }
       })
     }
+  }
+  deletePos(pos){
+    this.positionservice.deletePosition(pos).subscribe(x=>{
+      if (x){
+        this.toastrservice.success('Deleted Sucesfuly')
+        this.getAllPositions()
+      }
+    },(err)=>{
+      console.log(err);
+      
+    })
   }
 
 }

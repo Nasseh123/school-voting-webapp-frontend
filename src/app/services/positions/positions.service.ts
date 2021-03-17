@@ -15,7 +15,13 @@ export class PositionsService {
   getAllPositions(){
     return this.http.get(`${this.baseUrl}api/positions`)
   }
+  getexplicitAllPositions(){
+    return this.http.get(`${this.baseUrl}api/explicitpositions`)
+  }
   changePositionsStatus(pos){
     return this.http.post(`${this.baseUrl}api/update-status/positions`,pos)
+  }
+  deletePosition(pos){
+    return this.http.post(`${this.baseUrl}api/delete-position`,pos)
   }
 }

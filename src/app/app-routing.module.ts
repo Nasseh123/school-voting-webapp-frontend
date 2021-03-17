@@ -1,3 +1,4 @@
+import { AdminguardService } from './services/access/admin/adminguard.service';
 import { UsersComponent } from './components/admin/update/users/users.component';
 import { CandidateComponent } from './components/admin/update/candidate/candidate.component';
 import { PositionComponent } from './components/admin/update/position/position.component';
@@ -15,7 +16,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full' },
+  {path:'',redirectTo:'/home',pathMatch:'full' },
   {path: 'home',component:HomeComponent},
   
   {path:'login',component:AuthenticationComponent},
@@ -48,8 +49,9 @@ const routes: Routes = [
         path:'update-users',
         component:UsersComponent,
       },
-    ],
+    ],canActivate:[AdminguardService]
   },
+
   {path:'vote',component:VoteComponent,canActivate:[VoterouteService,LoggedinService]},
   {path:'vote-success',component:VoteSuccessComponent}
   

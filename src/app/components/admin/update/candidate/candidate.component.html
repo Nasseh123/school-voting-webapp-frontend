@@ -3,35 +3,20 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Position Name</th>
-            <th scope="col">Status</th>
+            <th scope="col">User</th>
+            <th scope="col">Email</th>
+            <th scope="col">Position</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+          <tr *ngFor="let candidate of allCandidates; index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td><img src="{{candidate.user.imageUrl}}" alt="" srcset="">{{candidate.user.username}}</td>
+            <td>{{candidate.user.email}}</td>
+            <td>{{candidate.position.name}}</td>
+            <th (click)="deletePos(candidate)"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
           </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>President</td>
-            <th> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i>Active</button></th>
-            <th><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
-          </tr>
+          
         </tbody>
       </table>

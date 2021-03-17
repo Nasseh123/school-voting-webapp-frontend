@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="container" style="width: auto;">
+<div class="container" style="width: auto;" *ngIf="positions.length >0">
   <h3 style="text-align:center" > {{positions[currentPosition].position}}</h3>
   <table class="table table-hover text-centre table-bordered" >
     <thead class="text-primary text-uppercase">
@@ -26,4 +26,8 @@
 <button class="btn-success" style="float: right;"  *ngIf="lastItem" (click)="next()">Submit</button>
 <button class="btn-primary " style="float: right;"  *ngIf="!lastItem"(click)="next()">Next</button>
 
+</div>
+
+<div *ngIf="positions.length==0">
+  <h2>THE POLLS ARE NOT AVAILABLE</h2>
 </div>
