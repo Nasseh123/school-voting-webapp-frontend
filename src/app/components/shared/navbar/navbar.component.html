@@ -1,30 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" routerLink="/home">KCA E-VOTING SYSTEM</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
       data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <li class="nav-item" style="padding: 4px;">
+            <a class=" btn  btn-warning nav-link "[routerLinkActive]="'active'" aria-current="page" routerLink="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/admin" *ngIf="adminRights">Admin</a>
+            <a class="btn  btn-warning nav-link" [routerLinkActive]="'active'" routerLink="/admin" *ngIf="adminRights">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn-danger btn " routerLink="/vote" *ngIf="!status && logged && !adminRights">VOTE</a>
+            <a class="btn  btn-warning nav-link btn-danger btn " [routerLinkActive]="'active'"   routerLink="/vote" *ngIf="!status && logged && !adminRights">VOTE</a>
           </li>
           <li class="nav-item " style="justify-content: center;">
-            <a class="nav-link btn-success btn " *ngIf="status && logged">You have voted </a>
+            <a class=" btn  btn-warning nav-link btn-success btn " [routerLinkActive]="'active'"  *ngIf="status && logged">You have voted </a>
           </li>
           <li class="nav-item " style="justify-content: center;">
-            <a class="nav-link btn-success btn" routerLink="/login" *ngIf="!logged">Login to Vote </a>
+            <a class="btn  btn-warning nav-link btn-success btn" [routerLinkActive]="'active'"  routerLink="/login" *ngIf="!logged">Login to Vote </a>
           </li>
 
           <li class="nav-item " >
-            <a class="nav-link"routerLink="/login" (click)="logout()" *ngIf="logged">LOGOUT</a>
+            <a class="btn  btn-warning nav-link"routerLink="/login" [routerLinkActive]="'active'"  (click)="logout()" *ngIf="logged">LOGOUT</a>
           </li>
          
         </ul>

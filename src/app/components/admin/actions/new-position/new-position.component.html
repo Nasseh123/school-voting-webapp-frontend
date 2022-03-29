@@ -4,11 +4,27 @@
       
       <input type="text"  #name="ngModel" [(ngModel)]="newPosition.name" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"  
       name="name" class="form-control" placeholder="position name..." required  />
+
       <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
         <div *ngIf="name.errors.required">Position naame is required</div>
      
     </div>
     <br>
+    <p>N.B -- Leave the class blank to represent a general leader..</p>
+    <ng-multiselect-dropdown
+    #selectedclass
+    name="selectedclass"
+    (ngModel)="selectedclass"
+    [placeholder]="'Select a Class...'" 
+    [settings]="studentClassSettings"
+    [data]="allClasses"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+        
+  >
+</ng-multiselect-dropdown>
+
+<br>
       <button class="btn btn-lg btn-primary btn-block" type="submit" >Create Position</button>   
     </form>
 </div>

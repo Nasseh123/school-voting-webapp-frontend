@@ -26,7 +26,9 @@ export class NavbarComponent implements OnInit {
     this.token=JSON.parse(localStorage.getItem('token'))
     if (this.token){
       this.logged = true
-      if (this.token.status == true){
+      console.log(this.token);
+      
+      if (this.token.votingStatus == true){
         this.status = true
       }else{
         this.status = false;

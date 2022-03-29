@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/authentication/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { VoteService } from './../../services/vote/vote.service';
 import { CandidateService } from './../../services/candidate/candidate.service';
@@ -88,20 +89,25 @@ export class VoteComponent implements OnInit {
     private positionservice: PositionsService,
     private candidateservice: CandidateService,
     private voteservice: VoteService,
-    private toastrservice: ToastrService
+    private toastrservice: ToastrService,
+    private loginservice:LoginService
   ) { }
   ngOnInit() {
 
     this.currentPos = this.positions[0]
 
     console.log(this.currentPos);
-    this.positionservice.getAllPositions().subscribe((positions: any) => {
+   var user= this.loginservice.checkToken()
+    this.positionservice.getSpecificPositions(user).subscribe((positions: any) => {
       // this.positionsList = positions.positions
+      console.log(positions);
+      
       if (positions) {
         for (let i = 0; i < positions.positions.length; i++) {
           this.positionsList.push({
             'position': positions['positions'][i]['name'],
-            'candidates': []
+            'candidates': [],
+            'studentclass': positions['positions'][i]['studentclass']
           })
         }
         console.log(this.positionsList);

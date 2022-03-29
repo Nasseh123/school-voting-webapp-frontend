@@ -2,6 +2,9 @@
 
 <div class="container" style="width: auto;" *ngIf="positions.length >0">
   <h3 style="text-align:center" > {{positions[currentPosition].position}}</h3>
+  <p *ngIf="positions[currentPosition].studentclass" style="text-align: center;"> This is a leader in you class</p>
+
+  <p *ngIf="!positions[currentPosition].studentclass" style="text-align: center;"> This is a general leader for the whole school </p>
   <table class="table table-hover text-centre table-bordered" >
     <thead class="text-primary text-uppercase">
         <th>ID</th>

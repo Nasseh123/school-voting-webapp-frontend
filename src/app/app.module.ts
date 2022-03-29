@@ -25,6 +25,7 @@ import { VoteSuccessComponent } from './components/vote/vote-success/vote-succes
 import { PositionComponent } from './components/admin/update/position/position.component';
 import { CandidateComponent } from './components/admin/update/candidate/candidate.component';
 import { UsersComponent } from './components/admin/update/users/users.component';
+import { NewClassComponent } from './components/admin/actions/new-class/new-class.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UsersComponent } from './components/admin/update/users/users.component'
     VoteSuccessComponent,
     PositionComponent,
     CandidateComponent,
-    UsersComponent
+    UsersComponent,
+    NewClassComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,28 @@
 <app-navbar></app-navbar>
 <div class="container-fluid ">
     <div class="btn-group  " role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./new-user'><i class="fas fa-user"></i>New User</button>
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./new-position'><i class="fas fa-plus"></i>New Position</button>
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./new-candidate'><i class="fa-rotate-90 fas fa-plus"></i>New Candidate</button>
+        <div *ngIf="!blockUserfunctions">
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-class'><i class="fas fa-plus"></i>New Class</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-user'><i class="fas fa-user"></i>New User</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-position'><i class="fas fa-plus"></i>New Position</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-candidate'><i class="fa-rotate-90 fas fa-plus"></i>New Candidate</button>
+    
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-positions'><i class="fas fa-user"></i>Update Position</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-candidates'><i class="fas fa-plus"></i>Edit Candidates</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-users'><i class="fa-rotate-90 fas fa-plus"></i>Edit Users</button>
+        </div>
 
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./update-positions'><i class="fas fa-user"></i>Update Position</button>
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./update-candidates'><i class="fas fa-plus"></i>Edit Candidates</button>
-        <button type="button" class="btn btn-primary btn-lg" routerLink='./update-users'><i class="fa-rotate-90 fas fa-plus"></i>Edit Users</button>
+        <div *ngIf="blockUserfunctions">
+            <button type="button" class="btn btn-warning btn-lg" (click)="showWarning('Cannot create new class because there is are positions or a candidates already created')" routerLink='./new-class'><i class="fas fa-plus"></i>New Class</button>
+            <button type="button" class="btn btn-warning btn-lg" (click)="showWarning('Cannot create new user because there is are positions or a candidates already created')"><i class="fas fa-user"></i>New User</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-position'><i class="fas fa-plus"></i>New Position</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./new-candidate'><i class="fa-rotate-90 fas fa-plus"></i>New Candidate</button>
+    
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-positions'><i class="fas fa-user"></i>Update Position</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-candidates'><i class="fas fa-plus"></i>Edit Candidates</button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink='./update-users'><i class="fa-rotate-90 fas fa-plus"></i>Edit Users</button>
+        </div>
+        
 
     </div>
     <!-- <div class="btn-group float-right" role="group" aria-label="Basic example">

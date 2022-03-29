@@ -1,5 +1,10 @@
 <div class="wrapper">
-    <form class="form-signin" #f="ngForm"  (ngSubmit)="f.form.valid  && login(f.value)">       
+    <form class="form-signin" #f="ngForm"  (ngSubmit)="f.form.valid  && login(f.value)"> 
+      <div style="display: flex;justify-content: center;">
+
+        <img src="https://www.kca.ac.ke/wp-content/uploads/2019/02/kcalogo.png"/>
+      </div>
+      <h2>KCA E-VOTING PLATFORM </h2>      
       <h2 class="form-signin-heading">Please login</h2>
       <input type="text"       #username="ngModel" [(ngModel)]="userDetails.username" name="username" class="form-control" placeholder="Username..." 
       [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"  required/>

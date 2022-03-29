@@ -1,58 +1,122 @@
 <app-navbar></app-navbar>
 
-<div class="container-fluid">
-     <span style="color: red;text-align: center;"> <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">RESULTS </span>{{percvot}}% <sup>Voted</sup></span> 
-    <!-- <div class="row"> -->
-     <div class="col-lg-6 col-sm-12" *ngFor="let pos of  positionsList">  
-       <div class="title_box" id="bill_to" *ngIf="pos.candidates.length >0">
+
+<div *ngIf="positionsList.length>0;else noPostions">
+  
+<div style="display: flex;justify-content: center;">
+  <span style="color: red;text-align: center;font-size: 4vh;font-weight: bold;"> 
+    <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">RESULTS 
+    </span> 
+    <span *ngIf="percvot<20 &&percvot >=0" style="color: violet;"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+    <span *ngIf="percvot<40 &&percvot >=20" style="color: rgb(238, 130, 189);"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+    <span *ngIf="percvot<50 &&percvot >=40" style="color: blue;"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+    <span *ngIf="percvot<70 &&percvot >=50" style="color: green;"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+
+    <span *ngIf="percvot<80 &&percvot >=70" style="color: rgb(116, 116, 14);"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+    <span *ngIf="percvot<90 &&percvot >=80" style="color: orange;"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+
+    <span *ngIf="percvot<=100 &&percvot >=90" style="color: red;"> {{percvot  | number :'1.2-2'}}% <sup>Voted</sup></span>
+  </span> 
+</div>
+<div class="container">
+  <div style="display: flex;justify-content: center;">
+    <span style="color: red;text-align: center;font-size: 4vh;font-weight: bold;"> 
+      <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">General Results 
+      </span> 
+      </span>
+      </div>
+    <div class="row">
+     <div class="col-lg-6 col-sm-12" *ngFor="let pos of  positionsList;let i =index">  
+      
+      <div class="title_box" id="bill_to" *ngIf="pos.candidates.length >0 && !pos.studentclass">
         <div id="title">{{pos['position']}}</div>
-        <div id="content" class="col d-flex justify-content-center ">
-         <div class="card" style="width: 18rem;"  *ngIf="pos.candidates[0]">
-          <span style="position: absolute; font-size:16px ">1</span>
-            <img src="{{pos.candidates[0]['image']}}" class="card-img-top img-fluid" alt="...">
-            <div class="card-body">
-              <h2 style="text-align:center;">{{pos.candidates[0].username}}</h2>
-            <hr>
-            </div>
-            <div class="card-footer">
-                <h4 style="text-align:center;"> {{pos.candidates[0].points}}%</h4>
-              </div>
-          </div>
+        <div class="row">
+          
+        <div id="content" class="col-3 col-6   " *ngFor="let cand of  pos.candidates;let x =index">
+          <div class="card" style="width: 18rem;"  >
+           <span style="position: absolute; font-size:16px ">{{x+1}}</span>
+             <img src="{{cand['image']}}" class="card-img-top img-fluid" alt="...">
+             <div class="card-body">
+               <h2 style="text-align:center;">{{cand.username}}</h2>
+             <hr>
+             </div>
+             <div class="card-footer">
+                 <h4 style="text-align:center;"> {{cand.points | number :'1.2-2'}}%</h4>
+               </div>
+           </div>
+         </div>
         </div>
 
-        <div id="content" class="col d-flex justify-content-center ">
-
-         <div class="card" style="width: 18rem;" *ngIf="pos.candidates[1]" >
-          <span style="position: absolute; font-size:16px ">2</span>
-            <img src="{{pos.candidates[1]['image']}}" class="card-img-top" alt="...">
-            
-            <div class="card-body">
-                <h2 style="text-align:center;">{{pos.candidates[1].username}}</h2>
-                <hr>
-            </div>
-            <div class="card-footer">
-                <h4 style="text-align:center;">{{pos.candidates[1].points}}% </h4>  
-              </div>
-          </div>
-          <div class="card" style="width: 18rem;" *ngIf="pos.candidates[2]">
-            <span style="position: absolute; font-size:16px ">3</span>
-            <img src="{{pos.candidates[2]['image']}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                <h2 style="text-align:center;">{{pos.candidates[2].username}}</h2>
-                <hr>
-              </div>
-              <div class="card-footer">
-                <h4 style="text-align:center;"> {{pos.candidates[2].points}}% </h4>
-              </div>
-          </div>
-           
-        </div>
+      
       </div>
     <!-- </div> -->
 
      
     </div>
    
+    </div>
+
 
       
 </div>
+
+<hr>
+<div class="container">
+
+  <div style="display: flex;justify-content: center;">
+    <span style="color: red;text-align: center;font-size: 4vh;font-weight: bold;"> 
+      <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">Classes Results 
+      </span> 
+      </span>
+      </div>
+
+  <div class="row">
+   <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let pos of  positionsList;let i =index">  
+    
+    <div class="title_box" id="bill_to" *ngIf="pos.candidates.length >0 && pos.studentclass">
+      <div id="title">{{pos['position']}}</div>
+      <div class="row">
+        
+      <div id="content" class="col-3 col-6" *ngFor="let cand of  pos.candidates;let x =index">
+        <div class="card" style="width: 18rem;"  >
+         <span style="position: absolute; font-size:16px ">{{x+1}}</span>
+           <img src="{{cand['image']}}" class="card-img-top img-fluid" alt="...">
+           <div class="card-body">
+             <h2 style="text-align:center;">{{cand.username}}</h2>
+           <hr>
+           </div>
+           <div class="card-footer">
+               <h4 style="text-align:center;"> {{cand.points | number :'1.2-2'}}%</h4>
+             </div>
+         </div>
+       </div>
+      </div>
+
+    
+    </div>
+  <!-- </div> -->
+
+   
+  </div>
+ 
+  </div>
+
+
+    
+</div>
+</div>   
+
+<ng-template #noPostions>
+  <div style="display: flex;justify-content: center;">
+    <span style="color: red;text-align: center;font-size: 4vh;font-weight: bold;"> 
+      <span style="font: size 12px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:black">There is no activity Yet.. 
+      </span> 
+
+      </span>
+      </div>
+</ng-template>

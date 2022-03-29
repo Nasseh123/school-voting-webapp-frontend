@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
-
+// import * as jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,4 +20,10 @@ export class LoginService {
     return this.http.post(`${this.baseURl}api/auth/signup`,data)
   }
 
+  checkToken(){
+
+    return JSON.parse(localStorage.getItem('token'))
+    
+    
+    }
 }

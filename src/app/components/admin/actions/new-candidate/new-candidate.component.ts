@@ -4,6 +4,7 @@ import { PositionsService } from './../../../../services/positions/positions.ser
 import { UsersService } from './../../../../services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { ClassService } from 'src/app/services/class/class.service';
 @Component({
   selector: 'app-new-candidate',
   templateUrl: './new-candidate.component.html',
@@ -15,7 +16,7 @@ export class NewCandidateComponent implements OnInit {
     private usersservice:UsersService,
     private positionservice:PositionsService,
     private candidateservice:CandidateService,
-    private toastr:ToastrService
+    private toastr:ToastrService,
   ) { }
 
   userList:any = [];
@@ -25,9 +26,12 @@ export class NewCandidateComponent implements OnInit {
   positionsList:any = [];
   positionSettings :IDropdownSettings = {};
   async ngOnInit() {
-   
+
+ 
     this.usersservice.getAllUsers().subscribe((users:any)=>{
       this.userList = users.user
+      console.log(this.userList);
+      
     })
     this.usersSetting = {
       singleSelection: false,
@@ -52,6 +56,7 @@ export class NewCandidateComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+
   }
   onItemSelect(item: any) {
     console.log(item);
@@ -75,6 +80,7 @@ export class NewCandidateComponent implements OnInit {
       value.position = x._id
       
     })
+ 
     value.user = value.user.map(({ _id }) => _id);
     console.log(value);
     // value.user.forEach(x =>{
@@ -87,7 +93,11 @@ export class NewCandidateComponent implements OnInit {
       console.log(value);
       
       this.candidateservice.createCandidate(value).subscribe((res:any)=>{
-        this.toastr.success(res.message)
+        console.log(res);
+        
+        this.toastr.success('Candidate created successfully')
+
+      location.reload();
       },(error)=>{
         this.toastr.error(error.error.message)
       })

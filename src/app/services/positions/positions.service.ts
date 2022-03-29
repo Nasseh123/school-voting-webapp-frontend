@@ -15,6 +15,10 @@ export class PositionsService {
   getAllPositions(){
     return this.http.get(`${this.baseUrl}api/positions`)
   }
+  getSpecificPositions(value){
+
+    return this.http.post(`${this.baseUrl}api/specpositions`,value)
+  }
   getexplicitAllPositions(){
     return this.http.get(`${this.baseUrl}api/explicitpositions`)
   }
@@ -23,5 +27,9 @@ export class PositionsService {
   }
   deletePosition(pos){
     return this.http.post(`${this.baseUrl}api/delete-position`,pos)
+  }
+
+  deleteUser(pos){
+    return this.http.post(`${this.baseUrl}api/delete-user`,pos)
   }
 }

@@ -34,7 +34,7 @@
       <ng-multiselect-dropdown
                                 #roles
                                 name="roles"
-                                [(ngModel)]="newUser.roles" 
+                                [(ngModel)]="newUser.roless" 
                                 [ngClass]="{ 'is-invalid': f.submitted && roles.invalid }"
 
                                 [placeholder]="'Select a role...'" 
@@ -45,6 +45,21 @@
                                     
                               >
     </ng-multiselect-dropdown>
+    <p>NB:If this is an admin user do not select the class option</p>
+    <ng-multiselect-dropdown
+    
+    name="studentclassesselected"
+    [(ngModel)]="studentclassesselected" 
+    
+
+    [placeholder]="'Select Student Classes ...'" 
+    [settings]="studentClassSettings"
+    [data]="allClasses"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+        
+  >
+</ng-multiselect-dropdown>
     <!-- <div *ngIf="f.submitted && roles.invalid" class="invalid-feedback">
         <div *ngIf="roles.errors.required">Role is required</div>
       </div> -->

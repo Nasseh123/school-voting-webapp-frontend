@@ -20,7 +20,14 @@
               <span *ngIf="x.name == 'admin'">Admin</span>
             </span>
           </td>
-          <th (click)="deletePos(candidate)"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+          
+          <th *ngIf=" this.currentUser.id == user._id;else notUSer">
+            <button type="button" class="btn btn-warning" title="You cannot delete your own account"><i class="fa fa-info-circle" aria-hidden="true"></i>Current User</button> 
+          </th>
+         <ng-template #notUSer>
+          <th  (click)="deleteUser(user)"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>Delete</button></th>
+         </ng-template>
+          
         </tr>
         
       </tbody>

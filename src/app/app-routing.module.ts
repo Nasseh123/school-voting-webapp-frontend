@@ -1,3 +1,4 @@
+import { NewClassComponent } from './components/admin/actions/new-class/new-class.component';
 import { AdminguardService } from './services/access/admin/adminguard.service';
 import { UsersComponent } from './components/admin/update/users/users.component';
 import { CandidateComponent } from './components/admin/update/candidate/candidate.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path:'new-position',
         component:NewPositionComponent,
+      },
+      {
+        path:'new-class',
+        component:NewClassComponent,
       },
       {
         path:'new-candidate',

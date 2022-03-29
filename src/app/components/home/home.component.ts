@@ -20,13 +20,16 @@ export class HomeComponent implements OnInit {
 
     this.positionservice.getAllPositions().subscribe((positions:any)=>{
       // this.positionsList = positions.positions
+      console.log(positions);
+      
       if (positions){
         for (let i=0;i<positions.positions.length;i++){
           this.positionsList.push({
             'position':positions['positions'][i]['name'],
             'noOfUsers':positions['positions'][i]['noOfUsers'],
             'noUsersVoted':positions['positions'][i]['noUsersVoted'],
-            'candidates':[]
+            'candidates':[],
+            'studentclass':positions['positions'][i]['studentclass']
           })
         }
         console.log(this.positionsList);
@@ -37,8 +40,10 @@ export class HomeComponent implements OnInit {
     })
     this.candidateservice.allcandidates().subscribe((candidates:any)=>{
       let candidate = candidates.candidate;
+      console.log(candidates);
       if (candidates.candidate){
         for(let i=0;i<candidate.length ;i++){
+          
          let pos = this.positionsList.findIndex(pos=>{
             return pos.position === candidate[i]['position']['name']
           })
@@ -52,6 +57,7 @@ export class HomeComponent implements OnInit {
                 })
           }
           this.percvot =this.totalPercVoted()
+          // this.percvot = 70
           
         }
       }
